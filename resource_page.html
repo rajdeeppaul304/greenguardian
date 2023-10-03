@@ -1,0 +1,515 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Resources</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" />
+  <style>
+    @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap");
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: "Poppins", sans-serif;
+    }
+
+    .sidebar {
+      position: fixed;
+      height: 100%;
+      width: 260px;
+      background: #11101d;
+      padding: 15px;
+      z-index: 99;
+      margin-top: -76px;
+    }
+
+
+    .sidebar a {
+      color: #fff;
+      text-decoration: none;
+      font-size: 17px;
+      margin-top: 
+    }
+
+    .menu-content {
+      position: relative;
+      height: 100%;
+      width: 100%;
+      margin-top: 40px;
+      overflow-y: scroll;
+    }
+
+    .menu-content::-webkit-scrollbar {
+      display: none;
+    }
+
+    .menu-items {
+      height: 100%;
+      width: 100%;
+      list-style: none;
+      transition: all 0.4s ease;
+    }
+
+    .submenu-active .menu-items {
+      transform: translateX(-56%);
+    }
+
+    .menu-title {
+      color: #fff;
+      font-size: 14px;
+      padding: 15px 20px;
+      
+    }
+
+    .item a,
+    .submenu-item {
+      padding: 16px;
+      display: inline-block;
+      width: 100%;
+      border-radius: 12px;
+    }
+
+    .item i {
+      font-size: 12px;
+    }
+
+    .item a:hover,
+    .submenu-item:hover,
+    .submenu .menu-title:hover {
+      background: rgba(255, 255, 255, 0.1);
+    }
+
+    .submenu-item {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      color: #fff;
+      cursor: pointer;
+    }
+
+    .submenu {
+      position: absolute;
+      height: 100%;
+      width: 100%;
+      top: 0;
+      right: calc(-100% - 26px);
+      height: calc(100% + 100vh);
+      background: #11101d;
+      display: none;
+    }
+
+    .show-submenu~.submenu {
+      display: block;
+    }
+
+    .submenu .menu-title {
+      border-radius: 12px;
+      cursor: pointer;
+    }
+
+    .submenu .menu-title i {
+      margin-right: 10px;
+    }
+    .sidebar .continer{
+      font-size: 100px;
+    }
+    /* for changes in page only */
+    .page-section {
+            height: 600px;
+            width: 75%;
+            margin-left: 21%;
+            margin-top: 5%;
+            padding: 3em;
+            background: linear-gradient(45deg, #43cea2 10%, #185a9d 90%);
+            color: white;
+            box-shadow: 0px 3px 10px 0px rgba(0, 0, 0, 0.5);
+            padding-left: 43px;
+            margin-right: 1%;
+        }
+
+
+    
+  </style>
+
+  <!-- new css -->
+
+<link rel="stylesheet" href="assests/style.css">
+
+<style>
+  header{
+    z-index: 100;
+  }
+</style>
+</head>
+
+<body>
+
+  <header>
+    <a href="#"><img src="assests/index/logo.png" alt="Green Guardian Logo" class="logo"></a>
+
+    <nav class="navigation">
+        <a href="index.html" >Home</a>
+        <a href="about.html">About</a>
+        <a href="resource_page.html" class="active">Resources</a>
+        <a href="">Recognition</a>
+        <a href="login.html">Sign In</a>
+
+    </nav>
+
+</header>
+
+
+
+  <nav class="sidebar">
+    
+    <div class="menu-content">
+      <ul class="menu-items">
+        <div class="menu-title"></div>
+        <div>
+
+          <!-- 1ST box -->
+            <div class="submenu-item">
+              <span>First submenu</span>
+              <i class="fa-solid fa-chevron-right"></i>
+            </div>
+
+            <ul class="menu-items submenu">
+              <div class="menu-title">
+                <i class="fa-solid fa-chevron-left"></i>
+                Go Back
+              </div>
+              <li class="item">
+                <a class="navigation__link" href="#1">Section 1</a>
+              </li>
+              <li class="item">
+                <a class="navigation__link" href="#2">Section 1</a>
+              </li>
+              <li class="item">
+                <a class="navigation__link" href="#3">Section 1</a>
+              </li>
+              <li class="item">
+                <a class="navigation__link" href="#4">Section 1</a>
+              </li>
+              <li class="item">
+                <a class="navigation__link" href="#5">Section 1</a>
+              </li>
+              <li class="item">
+                <a class="navigation__link" href="#6">Section 1</a>
+              </li>
+              <li class="item">
+                <a class="navigation__link" href="#7">Section 1</a>
+              </li>
+              <li class="item">
+                <a class="navigation__link" href="#8">Section 1</a>
+              </li>
+              <li class="item">
+                <a class="navigation__link" href="#9">Section 1</a>
+              </li>
+              <li class="item">
+                <a class="navigation__link" href="#10">Section 1</a>
+              </li>
+              
+            </div>
+        <!-- 2ND BOX -->
+        <div>
+          <li class="item">
+            <div class="submenu-item">
+              <span>First submenu</span>
+              <i class="fa-solid fa-chevron-right"></i>
+            </div>
+
+            <ul class="menu-items submenu">
+              <div class="menu-title">
+                <i class="fa-solid fa-chevron-left"></i>
+                Go Back
+              </div>
+              <li class="item">
+                <a class="navigation__link" href="#11">Section 1</a>
+              </li>
+              <li class="item">
+                <a class="navigation__link" href="#12">Section 1</a>
+              </li>
+              <li class="item">
+                <a class="navigation__link" href="#13">Section 1</a>
+              </li>
+              <li class="item">
+                <a class="navigation__link" href="#14">Section 1</a>
+              </li>
+              <li class="item">
+                <a class="navigation__link" href="#15">Section 1</a>
+              </li>
+              <li class="item">
+                <a class="navigation__link" href="#16">Section 1</a>
+              </li>
+              <li class="item">
+                <a class="navigation__link" href="#17">Section 1</a>
+              </li>
+              <li class="item">
+                <a class="navigation__link" href="#18">Section 1</a>
+              </li>
+              <li class="item">
+                <a class="navigation__link" href="#19">Section 1</a>
+              </li>
+              <li class="item">
+                <a class="navigation__link" href="#20">Section 1</a>
+              </li>
+              
+        </div>
+            <!-- 3RD BOX -->
+        <li class="item">
+          <div class="submenu-item">
+            <span>First submenu</span>
+            <i class="fa-solid fa-chevron-right"></i>
+          </div>
+
+          <ul class="menu-items submenu">
+            <div class="menu-title">
+              <i class="fa-solid fa-chevron-left"></i>
+              Go Back
+            </div>
+            <li class="item">
+              <a class="navigation__link" href="#21">Section 1</a>
+            </li>
+            <li class="item">
+              <a class="navigation__link" href="#22">Section 1</a>
+            </li>
+            <li class="item">
+              <a class="navigation__link" href="#23">Section 1</a>
+            </li>
+            <li class="item">
+              <a class="navigation__link" href="#24">Section 1</a>
+            </li>
+            <li class="item">
+              <a class="navigation__link" href="#25">Section 1</a>
+            </li>
+            <li class="item">
+              <a class="navigation__link" href="#26">Section 1</a>
+            </li>
+            <li class="item">
+              <a class="navigation__link" href="#27">Section 1</a>
+            </li>
+            <li class="item">
+              <a class="navigation__link" href="#28">Section 1</a>
+            </li>
+            <li class="item">
+              <a class="navigation__link" href="#29">Section 1</a>
+            </li>
+            <li class="item">
+              <a class="navigation__link" href="#30">Section 1</a>
+            </li>
+
+          </ul>
+        </li>
+        <!-- 4TH BOX -->
+        <li class="item">
+          <div class="submenu-item">
+            <span>Second submenu</span>
+            <i class="fa-solid fa-chevron-right"></i>
+          </div>
+
+          <ul class="menu-items submenu">
+            <div class="menu-title">
+              <i class="fa-solid fa-chevron-left"></i>
+              Go Back
+            </div>
+            <li class="item">
+              <a class="navigation__link" href="#31">Section 1</a>
+            </li>
+            <li class="item">
+              <a class="navigation__link" href="#32">Section 1</a>
+            </li>
+            <li class="item">
+              <a class="navigation__link" href="#33">Section 1</a>
+            </li>
+            <li class="item">
+              <a class="navigation__link" href="#34">Section 1</a>
+            </li>
+            <li class="item">
+              <a class="navigation__link" href="#35">Section 1</a>
+            </li>
+            <li class="item">
+              <a class="navigation__link" href="#36">Section 1</a>
+            </li>
+            <li class="item">
+              <a class="navigation__link" href="#37">Section 1</a>
+            </li>
+            <li class="item">
+              <a class="navigation__link" href="#38">Section 1</a>
+            </li>
+            <li class="item">
+              <a class="navigation__link" href="#39">Section 1</a>
+            </li>
+            <li class="item">
+              <a class="navigation__link" href="#40">Section 1</a>
+            </li>
+
+          </ul>
+        </li>
+
+
+  </nav>
+  <div class="page-section hero" id="1">
+    <h1>Smooth scroll, fixed jump menu with active class</h1>
+</div>
+<br>
+<!-- content to be filed in this using p tag -->
+<div class="page-section" id="2">
+    <h1>Section Two</h1>
+</div>
+<div class="page-section" id="3">
+    <h1>Section Three</h1>
+</div>
+<div class="page-section" id="4">
+    <h1>Section Four</h1>
+</div>
+<div class="page-section" id="5">
+    <h1>Section Five</h1>
+</div>
+<div class="page-section" id="6">
+    <h1>Section Six</h1>
+</div>
+<div class="page-section" id="7">
+    <h1>Section Seven</h1>
+</div>
+<div class="page-section" id="8">
+    <h1>Section Seven</h1>
+</div>
+<div class="page-section" id="9">
+    <h1>Section Seven</h1>
+</div>
+<div class="page-section" id="10">
+    <h1>Section Seven</h1>
+</div>
+<div class="page-section" id="11">
+  <h1>Section Seven</h1>
+</div>
+<div class="page-section" id="12">
+  <h1>Section Seven</h1>
+</div>
+<div class="page-section" id="13">
+  <h1>Section Seven</h1>
+</div>
+<div class="page-section" id="14">
+  <h1>Section Seven</h1>
+</div>
+<div class="page-section" id="15">
+  <h1>Section Seven</h1>
+</div>
+<div class="page-section" id="16">
+  <h1>Section Seven</h1>
+</div>
+<div class="page-section" id="17">
+  <h1>Section Seven</h1>
+</div>
+<div class="page-section" id="18">
+  <h1>Section Seven</h1>
+</div>
+<div class="page-section" id="19">
+  <h1>Section Seven</h1>
+</div>
+<div class="page-section" id="20">
+  <h1>Section Seven</h1>
+</div>
+<div class="page-section" id="21">
+  <h1>Section Seven</h1>
+</div>
+<div class="page-section" id="22">
+  <h1>Section Seven</h1>
+</div>
+<div class="page-section" id="23">
+  <h1>Section Seven</h1>
+</div>
+<div class="page-section" id="24">
+  <h1>Section Seven</h1>
+</div>
+<div class="page-section" id="25">
+  <h1>Section Seven</h1>
+</div>
+<div class="page-section" id="26">
+  <h1>Section Seven</h1>
+</div>
+<div class="page-section" id="27">
+  <h1>Section Seven</h1>
+</div>
+<div class="page-section" id="28">
+  <h1>Section Seven</h1>
+</div>
+<div class="page-section" id="29">
+  <h1>Section Seven</h1>
+</div>
+<div class="page-section" id="30">
+  <h1>Section Seven</h1>
+</div>
+<div class="page-section" id="31">
+  <h1>Section Seven</h1>
+</div>
+<div class="page-section" id="32">
+  <h1>Section Seven</h1>
+</div>
+<div class="page-section" id="33">
+  <h1>Section Seven</h1>
+</div>
+<div class="page-section" id="34">
+  <h1>Section Seven</h1>
+</div>
+<div class="page-section" id="35">
+  <h1>Section Seven</h1>
+</div>
+<div class="page-section" id="36">
+  <h1>Section Seven</h1>
+</div>
+<div class="page-section" id="37">
+  <h1>Section Seven</h1>
+</div>
+<div class="page-section" id="38">
+  <h1>Section Seven</h1>
+</div>
+<div class="page-section" id="39">
+  <h1>Section Seven</h1>
+</div>
+<div class="page-section" id="40">
+  <h1>Section Seven</h1>
+  <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Impedit vel sint, optio fugiat minima eos ipsa expedita inventore similique ipsum asperiores atque quibusdam aliquam esse quos ratione repellat deleniti tempore iste excepturi voluptas commodi. Sunt culpa nemo incidunt sequi corrupti.</p>
+</div>
+
+  <nav class="navbar">
+    <i class="" id="sidebar-close"></i>
+  </nav>
+
+  <script>
+    const sidebar = document.querySelector(".sidebar");
+    const sidebarClose = document.querySelector("#sidebar-close");
+    const menu = document.querySelector(".menu-content");
+    const menuItems = document.querySelectorAll(".submenu-item");
+    const subMenuTitles = document.querySelectorAll(".submenu .menu-title");
+
+    sidebarClose.addEventListener("click", () => sidebar.classList.toggle("close"));
+
+    menuItems.forEach((item, index) => {
+      item.addEventListener("click", () => {
+        menu.classList.add("submenu-active");
+        item.classList.add("show-submenu");
+        menuItems.forEach((item2, index2) => {
+          if (index !== index2) {
+            item2.classList.remove("show-submenu");
+          }
+        });
+      });
+    });
+
+    subMenuTitles.forEach((title) => {
+      title.addEventListener("click", () => {
+        menu.classList.remove("submenu-active");
+      });
+    });
+  </script>
+
+
+
+
+</body>
+
+</html>

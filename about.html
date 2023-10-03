@@ -1,0 +1,780 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Clickable Image Map</title>
+    <script src="https://unpkg.com/typed.js@2.0.16/dist/typed.umd.js"></script>
+    <script>
+      function adjustCoordinates() {
+        // Get the current width of the image
+
+        var imgWidth = document.getElementById("yourImage").width;
+        var imgScaleFactor = imgWidth / 1599; // Calculate the scaling factor
+
+        // Get all area elements
+        var areas = document.querySelectorAll('map[name="peoplemap"] area');
+
+        areas.forEach(function (area) {
+          // Get the original coordinates
+          var originalCoords = area
+            .getAttribute("data-original-coords")
+            .split(",");
+
+          // Adjust the coordinates based on the scaling factor
+          var adjustedCoords = originalCoords.map(function (coord) {
+            return Math.round(coord * imgScaleFactor);
+          });
+
+          // Set the adjusted coordinates
+          area.setAttribute("coords", adjustedCoords.join(","));
+
+        });
+      }
+      
+      window.addEventListener("resize", adjustCoordinates);
+    </script>
+    <style>
+      img {
+        width: 100%;
+        /* filter: grayscale(100%); */
+
+        /* transition: z-index 0.5s ease-in;  Add a transition for z-index */
+      }
+
+      body {
+        margin: 0; /* Remove default margin to make content flush with the edges */
+        padding: 0; /* Remove default padding */
+        background-color: black; /* Set a background color for the body */
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+
+        min-height: 100vh; /* Ensure body takes up at least the full viewport height */
+      }
+
+      .second-element {
+        color: aqua;
+        background-color: #ffffff; /* Set a background color for the second element */
+        padding: 20px; /* Add some padding to the second element for spacing */
+        text-align: center; /* Center the text/content horizontally */
+        box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.2); /* Add a subtle box shadow */
+        margin: auto; /* Add margin to the second element for spacing */
+        width: 500px;
+        height: 200px;
+        border: 2px solid #ccc;
+        color: #a6dbbc;
+        padding: 10px;
+        position: relative;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+
+      .image-container {
+        user-select: none;
+
+        position: relative;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 60%;
+        margin: 40px; /* Optional: Add margin to the first element for spacing */
+        box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.2); /* Optional: Add a subtle box shadow */
+      }
+
+      /*  newly added code*/
+      /* Style the areas on hover */
+      .area-to-highlight:hover {
+        opacity: 0.7; /* Change the opacity or add other styles as desired */
+        cursor: pointer;
+      }
+
+      .tooltip {
+        user-select: none;
+        position: absolute;
+        z-index: 3;
+        background-color: rgba(0, 0, 0, 0.7);
+        color: #fff;
+        padding: 5px 10px;
+        border-radius: 5px;
+        /* width: 60px; */
+        /* height: 20px; */
+        font-size: 15px;
+        white-space: nowrap;
+        pointer-events: none; /* Ensure the tooltip doesn't interfere with mouse events */
+      }
+    </style>
+    <style>
+      /* CSS for image container and placeholders */
+      .image-container {
+        position: relative;
+        display: flex;
+        border-radius: 10px; 
+        overflow: hidden;
+      }
+
+      .cutout-image {
+        z-index: 1;
+      }
+      
+      .cutout-image-2 {
+        position: absolute;
+
+        z-index: 1;
+      }
+
+      .cutout-image-3 {
+        position: absolute;
+
+        z-index: 1;
+      }
+      .cutout-image-4 {
+        position: absolute;
+
+        z-index: 1;
+      }
+
+
+
+
+      #yourImage {
+        position: absolute;
+        z-index: 2;
+      }
+      /* #info{
+
+    width: 40%;
+  height: 200px;
+  border: 1px solid #ccc;
+  color:	#a6dbbc;
+  padding: 10px;
+  position: relative;
+                display: flex;
+                justify-content: center;
+        align-items: center;
+
+
+
+} */
+#yourImage2, #yourImage3, #yourImage4{
+    position: absolute;
+    z-index: 2;
+    display: none;
+}
+
+.typed-cursor {
+        color: #a6dbbc;
+      }
+
+    </style>
+
+<!-- new style -->
+<style>
+      body {
+    overflow: hidden;
+}
+    body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+}
+
+.scroll-container {
+    height: 100vh; /* Adjust the height as needed */
+    overflow: auto;
+    /* border: 1px solid #ccc; */
+    position: absolute;
+    z-index: -100;
+
+}
+
+.scroll-content {
+    padding: 20px;
+
+}
+.item{
+    text-align: center;
+    font-size: 158px;
+    font-weight: bold; /* You can change the font weight as needed */
+            color: transparent; /* Make the text color transparent */
+            -webkit-text-stroke: 2px white; /* Apply a 2px black border to the text */
+            text-stroke: 2px #000; /* Standardized version of the text-stroke property */
+
+
+}
+
+#black-element-behind-images{
+  width: 100%;
+  height: 100%;
+  background-color: black;
+  position: absolute;
+  z-index: -10;
+}
+
+
+
+</style>
+<link rel="stylesheet" href="assests/style.css">
+
+  </head>
+  <body onload="adjustCoordinates()">
+
+    <header>
+      <a href="#"><img src="assests/index/logo.png" alt="Green Guardian Logo" class="logo"></a>
+
+      <nav class="navigation">
+          <a href="index.html" >Home</a>
+          <a href="" class="active">About</a>
+          <a href="resource_page.html">Resources</a>
+          <a href="">Recognition</a>
+          <a href="login.html">Sign In</a>
+
+      </nav>
+
+  </header>
+
+
+    <div class="scroll-container" id="scroll-container">
+      <div class="scroll-content" id="scroll-content">
+          <!-- Dynamically loaded items will go here -->
+      </div>
+  </div>
+
+
+
+
+    <div class="image-container">
+      <img
+        src="assests/about/img.jpg"
+        id="yourImage"
+        usemap="#peoplemap"
+        alt="People"
+        draggable="false"
+      />
+            <!-- <img
+            src="img.jpg"
+            id="yourImage2"
+            usemap="#peoplemap"
+            alt="People"
+            draggable="false"
+            />
+            <img
+            src="img.jpg"
+            id="yourImage3"
+            usemap="#peoplemap"
+            alt="People"
+            draggable="false"
+        />
+        <img
+        src="img.jpg"
+        id="yourImage4"
+        usemap="#peoplemap"
+        alt="People"
+        draggable="false"
+        /> -->
+
+      <map name="peoplemap">
+        <!-- Define clickable areas using <area> elements with the provided coordinates -->
+        <area
+          shape="poly"
+          id="personArea-1"
+          class="area-to-highlight"
+          onclick="handleClick(event, 0)"
+          data-original-coords="1,183,47,150,117,128,185,131,249,150,289,179,310,225,300,249,307,297,316,319,305,350,311,389,311,399,294,448,283,475,268,494,258,511,247,522,213,531,202,575,223,591,260,604,279,626,291,647,295,672,308,702,316,723,323,737,0,737,1,509,7,471,7,438,1,432,0,195"
+        />
+
+        <area
+          shape="poly"
+          id="personArea-2"
+          class="area-to-highlight"
+          onclick="handleClick(event, 1)"
+          data-original-coords="279, 486, 296, 493, 305, 475, 308, 464, 310, 450, 317, 423, 326, 398, 341, 378, 354, 362, 371, 352, 386, 349, 403, 351, 422, 357, 455, 362, 483, 366, 498, 376, 515, 386, 519, 398, 528, 410, 532, 433, 532, 456, 525, 467, 520, 478, 515, 486, 507, 499, 501, 504, 504, 513, 504, 523, 495, 532, 485, 539, 474, 542, 469, 542, 463, 549, 455, 560, 446, 573, 422, 589, 405, 602, 392, 600, 381, 597, 375, 598, 366, 608, 359, 610, 356, 610, 340, 616, 328, 622, 321, 625, 322, 635, 325, 652, 332, 666, 330, 669, 322, 683, 318, 696, 316, 705, 315, 712, 310, 708, 302, 689, 296, 676, 293, 654, 288, 638, 279, 625, 264, 610, 249, 597, 239, 593, 228, 589, 218, 584, 205, 575, 206, 561, 207, 555, 212, 543, 215, 535, 231, 528, 243, 525, 252, 523, 260, 520, 264, 509, 268, 500, 272, 495, 278, 487"
+
+        />
+        <area
+          shape="poly"
+          id="personArea-3"
+
+          class="area-to-highlight"
+          onclick="handleClick(event, 2)"
+
+          data-original-coords="496, 373, 526, 365, 524, 345, 517, 343, 515, 336, 509, 326, 508, 311, 510, 305, 514, 303, 516, 302, 521, 283, 525, 271, 533, 256, 539, 247, 554, 236, 574, 234, 595, 235, 609, 244, 624, 258, 629, 276, 631, 291, 634, 306, 631, 307, 631, 316, 637, 323, 634, 334, 627, 352, 620, 352, 617, 358, 612, 365, 613, 373, 623, 378, 634, 387, 648, 398, 662, 405, 686, 419, 695, 426, 701, 437, 707, 445, 717, 458, 721, 477, 727, 490, 730, 508, 734, 520, 746, 555, 759, 587, 772, 607, 803, 629, 830, 649, 844, 675, 860, 705, 862, 736, 783, 736, 789, 699, 791, 686, 792, 679, 733, 654, 688, 566, 676, 547, 674, 563, 678, 578, 675, 589, 678, 606, 674, 614, 673, 632, 682, 647, 705, 649, 730, 656, 732, 658, 788, 684, 779, 734, 646, 737, 435, 736, 439, 726, 408, 671, 405, 601, 448, 573, 471, 543, 486, 541, 496, 535, 501, 528, 510, 526, 511, 522, 507, 521, 506, 515, 504, 506, 503, 504, 516, 492, 519, 482, 525, 476, 530, 465, 534, 457, 536, 449, 535, 438, 534, 424, 534, 415, 527, 399, 523, 394, 513, 382, 497, 375"
+        />
+        <area
+          shape="poly"
+          id="personArea-4"
+          onclick="handleClick(event, 3)"
+
+          class="area-to-highlight"
+          data-original-coords="1598, 417, 1566, 415, 1539, 410, 1508, 406, 1492, 396, 1480, 391, 1470, 384, 1465, 361, 1473, 359, 1476, 347, 1479, 330, 1472, 319, 1469, 314, 1463, 315, 1458, 289, 1460, 277, 1453, 258, 1433, 244, 1417, 236, 1391, 232, 1370, 232, 1346, 242, 1331, 260, 1318, 289, 1319, 306, 1324, 327, 1323, 334, 1328, 341, 1326, 360, 1336, 392, 1345, 405, 1365, 424, 1372, 430, 1355, 457, 1288, 515, 1285, 539, 1281, 580, 1282, 607, 1283, 618, 1278, 634, 1286, 634, 1292, 681, 1300, 714, 1301, 735, 1370, 737, 1359, 650, 1362, 624, 1383, 644, 1406, 673, 1422, 702, 1430, 737, 1597, 737, 1598, 417"
+        />
+
+        <area
+        shape="poly"
+        id="personArea-5"
+
+        class="area-to-highlight"
+        data-original-coords="864, 736, 876, 705, 894, 684, 921, 673, 943, 671, 951, 672, 967, 676, 982, 677, 987, 672, 997, 670, 1003, 675, 1012, 674, 1011, 662, 1010, 646, 1011, 641, 1017, 643, 1019, 640, 1012, 632, 1008, 629, 1009, 603, 1007, 583, 1002, 561, 994, 532, 988, 510, 949, 538, 937, 537, 928, 546, 964, 548, 1001, 603, 1008, 630, 1012, 673, 1000, 671, 991, 622, 979, 674, 968, 673, 957, 671, 941, 664, 943, 612, 936, 581, 898, 589, 861, 594, 852, 588, 851, 566, 858, 547, 878, 527, 903, 496, 976, 415, 994, 414, 1007, 405, 1017, 406, 1022, 403, 1020, 390, 1008, 365, 995, 353, 985, 351, 980, 336, 982, 322, 984, 319, 979, 292, 981, 271, 990, 255, 1001, 248, 1018, 243, 1044, 240, 1061, 241, 1076, 249, 1084, 263, 1094, 280, 1093, 299, 1091, 309, 1099, 317, 1097, 335, 1092, 344, 1085, 344, 1089, 361, 1097, 380, 1106, 379, 1129, 371, 1158, 363, 1173, 360, 1185, 358, 1204, 360, 1235, 368, 1267, 379, 1301, 392, 1346, 408, 1372, 429, 1353, 456, 1321, 478, 1316, 485, 1288, 512, 1281, 563, 1278, 584, 1280, 603, 1283, 618, 1275, 634, 1284, 637, 1288, 645, 1276, 656, 1267, 649, 1259, 642, 1259, 624, 1252, 609, 1257, 584, 1277, 564, 1289, 512, 1313, 484, 1318, 450, 1304, 445, 1292, 456, 1250, 449, 1240, 477, 1238, 514, 1241, 552, 1244, 622, 1248, 683, 1247, 723, 1244, 735, 868, 737, 865, 735"
+      />
+
+        <!-- Add more <area> elements with their respective coordinates and links for other people or areas -->
+      </map>
+      <img
+        src="assests/about/naman2.png"
+        class="cutout-image"
+        id="cutout-image-1"
+        alt="Cutout Image 1"
+      />
+     <img
+        src="assests/about/rajdeep2.png"
+        class="cutout-image-2"
+        id="cutout-image-2"
+        alt="Cutout Image 2"
+      />
+       
+      <img
+        src="assests/about/ayush2.png"
+        class="cutout-image-3"
+        id="cutout-image-3"
+        alt="Cutout Image 3"
+      />
+      <img
+        src="assests/about/piyush2.png"
+        class="cutout-image-4"
+        id="cutout-image-4"
+        alt="Cutout Image 4"
+      />
+      <div id="black-element-behind-images"></div>
+
+    </div>
+    <div id="second-element">
+        <span id="TypedCursor_span" style="color: #a6dbbc"></span>
+
+    </div>
+    <script>
+      const areas = document.querySelectorAll(".area-to-highlight");
+
+      // Loop through each area element
+      // Get a reference to the image container
+      const imageContainer = document.querySelector(".image-container");
+
+      const tooltip = document.createElement("div");
+      tooltip.className = "tooltip";
+      tooltip.textContent = "Text to display when hovering";
+
+      // Add the tooltip to the image container (hidden initially)
+      imageContainer.appendChild(tooltip);
+      tooltip.style.display = "none";
+      const TypedCursor_span = document.getElementById("TypedCursor_span");
+
+    </script>
+    <script >
+      const scrollContainer = document.getElementById('scroll-container');
+      const scrollContent = document.getElementById('scroll-content');
+      
+      const itemHeight = 100; // Adjust the height of each item as needed
+      let itemCount = 50;  // Adjust the number of initial items as needed
+      const scrollSpeed = 4; // Adjust the scroll speed (lower values for slower scrolling)
+      
+      function createItem(index) {
+          const item = document.createElement('div');
+          item.classList.add('item');
+          item.textContent = ``;
+      
+          const bugBountySpan = document.createElement('span');
+          bugBountySpan.textContent = 'BugBounty';
+          bugBountySpan.style.webkitTextStroke = '2px white'; // Apply text-stroke to 'BugBounty'
+          bugBountySpan.style.textStroke = '2px white'; // Standardized version of the text-stroke property
+      
+          // Create a span element for the normal text
+          const bountySpan = document.createElement('span');
+          bountySpan.textContent = 'Brigade';
+          bountySpan.style.color = "white";
+      
+          // Append both spans to the item div
+          item.appendChild(bugBountySpan);
+          item.appendChild(bountySpan);
+
+          item.style.zIndex = "-10";
+      
+          return item;
+      }
+      
+      function loadMoreItems() {
+          for (let i = 0; i < itemCount; i++) {
+              const item = createItem(scrollContent.childElementCount + 1);
+              scrollContent.appendChild(item);
+          }
+          itemCount += itemCount; // Increase the item count as needed
+      }
+      
+      loadMoreItems();
+      
+      scrollContainer.scrollTop = 0; // Start from the top
+      
+      function scrollLoop() {
+          if (scrollContainer.scrollTop >= scrollContent.clientHeight - scrollContainer.clientHeight) {
+              loadMoreItems(); // Append new items when reaching the bottom
+          }
+      
+          scrollContainer.scrollTop += scrollSpeed;
+      }
+
+      function scrollContainer_hider(bool) {
+          if (bool) {
+            scrollContainer.style.opacity = "0.5"
+            }
+            else{
+              scrollContainer.style.opacity = "1"
+
+            }
+      
+      }
+
+
+
+      
+      setInterval(scrollLoop, 50); // Adjust the interval for smoother or faster scrolling
+      
+      // Disable user scroll
+      scrollContainer.style.overflow = 'hidden';
+      
+          </script>
+      
+
+    <script>
+        var typed;
+        var ImgOnTop = 0;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        const personArea1 = document.getElementById("personArea-1");
+      const personArea2 = document.getElementById("personArea-2");
+      const personArea3 = document.getElementById("personArea-3");
+      const personArea4 = document.getElementById("personArea-4");
+
+      const imgElement1 = document.getElementById("cutout-image-1");
+      const imgElement2 = document.getElementById("cutout-image-2");
+      const imgElement3 = document.getElementById("cutout-image-3");
+      const imgElement4 = document.getElementById("cutout-image-4");
+
+      // const originals1 = document.getElementById("yourImage");
+      // const originals2 = document.getElementById("yourImage2");
+      // const originals3 = document.getElementById("yourImage3");
+      // const originals4 = document.getElementById("yourImage4");
+
+      // const scrollContainer1 = document.getElementById('scroll-container');
+      // const scrollContainer2 = document.getElementById('scroll-container');
+      // const scrollContainer3 = document.getElementById('scroll-container');
+      // const scrollContainer4 = document.getElementById('scroll-container');
+
+
+
+      const ImgElements = [imgElement1, imgElement2, imgElement3, imgElement4]
+      const PersonArea = [personArea1, personArea2, personArea3, personArea4]
+      // const Originals = [originals1, originals2, originals3, originals4]
+      let original = document.getElementById("yourImage");
+
+
+      // Get the <area> element by its id
+
+      function handleClick(event, num) {
+        let imgElement = ImgElements[num]
+        let personArea = PersonArea[num]
+        // let original = Originals[num]
+        
+
+
+
+            if (typed) {
+                typed.destroy();
+            TypedCursor_span.textContent = "";
+
+            }
+
+            typed = new Typed("#TypedCursor_span", {
+          strings: [
+            "Lorem ipsum dolor sit amet consectetur adipisicing elit. Labore fugit quidem, amet laborum vel quia aliquam harum obcaecati modi repellat?",
+          ],
+          typeSpeed: 30,
+        });
+
+
+
+
+
+
+
+
+
+
+            // const originalImage = document.getElementById("yourImage");
+            original.style.opacity = "1";
+
+
+        // Prevent the default behavior (redirecting to another page)
+        // event.preventDefault();
+        // Increase the z-index
+        imgElement.style.zIndex = "4";
+        tooltip.style.display = "none";
+        const currentOpacity = parseFloat(
+          getComputedStyle(original).opacity
+        );
+
+        // Decrease the opacity (e.g., by 0.1)
+        const newOpacity = currentOpacity - 0.3;
+
+        // console.log(newOpacity)
+
+        ImgElements.forEach((element) => {
+            element.style.display = "none";
+            });
+        imgElement.style.display = "block";
+        imgElement.style.position = 'static';
+
+
+
+        // Originals.forEach((element) => {
+        //     element.style.display = "none";
+        //     });
+
+
+
+        original.style.display = "block";
+        original.style.zIndex = "3"
+        original.style.filter = "grayscale(80%) blur(3px)";
+        scrollContainer_hider(true)
+        // scrollContainer.style.opacity = '0.5';
+
+
+        // imgElement2.style.display = "none";
+        // imgElement3.style.display = "none";
+        // imgElement4.style.display = "none";
+
+        // Ensure the opacity doesn't go below 0
+
+        if (newOpacity >= 0) {
+            console.log(original.style.opacity, "old")
+            original.style.opacity = newOpacity;
+          console.log(original.style.opacity, "new")
+
+        }
+        console.log(ImgOnTop)
+
+        ImgOnTop = 1;
+        event.stopPropagation();
+
+        // originalImage.style.display = "none";
+
+
+  
+
+        // Add a click event listener to the document to reset the z-index and opacity
+
+
+
+
+
+
+      };
+
+
+
+      document.addEventListener("click", function (event) {
+          if (ImgOnTop === 1) {
+
+            for (let i = 0; i < ImgElements.length; i++) {
+              ImgElements[i].style.zIndex = "1";
+              
+            }
+
+            
+
+            // Reset the opacity
+
+            original.style.opacity = "1";
+            original.style.filter = "grayscale(0%)";
+            original.style.filter = "blur(0px)";
+            scrollContainer_hider(false)
+            // scrollContainer.style.opacity = '1';
+
+
+
+            // original.style.display = "block";
+            typed.destroy();
+            TypedCursor_span.textContent = "";
+
+            ImgOnTop = 0;
+            console.log("this ran")
+
+        }
+
+        });
+//       function myFunction() {
+//   // Your code here
+//   console.log('Screen was clicked!', ImgOnTop);
+// }
+
+// window.onclick = myFunction;
+
+
+          // Check if the clicked element is not within 'personArea'
+          // if (!personArea.contains(event.target)) {
+          //   // Reset the z-index
+          //   imgElement.style.zIndex = "1";
+
+          //   // Reset the opacity
+
+          //   original.style.opacity = "1";
+          //   original.style.filter = "grayscale(0%)";
+          //   original.style.filter = "blur(0px)";
+          //   scrollContainer_hider(false)
+          //   // scrollContainer.style.opacity = '1';
+
+
+
+          //   // original.style.display = "block";
+          //   typed.destroy();
+          //   TypedCursor_span.textContent = "";
+
+
+
+          //   // Remove the click event listener from the document
+          //   // document.removeEventListener("click", resetZIndexAndOpacity);
+          // }
+
+        
+      
+
+    
+      // Add a click event listener
+
+
+
+      // const ScrollContainers = [scrollContainer1, scrollContainer2, scrollContainer3, scrollContainer4]
+
+      // var total = []
+      // for (let index = 0; index < ImgElements.length; index++) {
+      //   total.push(func_to_make_areas(PersonArea[index], ImgElements[index], Originals[index]))
+        
+      // }
+
+
+    </script>
+
+    <script>
+      //code for tooltip
+
+      // Get all the area elements with the class "area-to-highlight"
+
+      // Get a reference to the original image
+      // Create a div element to display text (tooltip)
+
+      // Calculate the maximum right position for the tooltip
+      const maxRight = imageContainer.offsetWidth - tooltip.offsetWidth;
+
+      // Listen for mousemove events on the image container
+      imageContainer.addEventListener("mousemove", (event) => {
+        // Calculate the position of the tooltip slightly to the right of the mouse cursor
+        const mouseX =
+          event.clientX -
+          imageContainer.getBoundingClientRect().left +
+          window.scrollX;
+        const mouseY =
+          event.clientY -
+          imageContainer.getBoundingClientRect().top +
+          window.scrollY;
+
+        let tooltipLeft = mouseX + 10; // 10 pixels to the right of the cursor
+        const tooltipTop = mouseY;
+
+        // Ensure the tooltip doesn't overflow from the right side
+        if (tooltipLeft > maxRight) {
+          tooltipLeft = maxRight;
+        }
+
+        // Set the tooltip position
+        tooltip.style.left = `${tooltipLeft}px`;
+        tooltip.style.top = `${tooltipTop}px`;
+      });
+
+      // Listen for mouseleave events on the image container to hide the tooltip
+      imageContainer.addEventListener("mouseleave", () => {
+        tooltip.style.display = "none";
+      });
+
+      for (let i = 0; i < areas.length; i++) {
+  const area = areas[i];
+
+  // Show the tooltip when mouse enters the area
+  area.addEventListener('mouseenter', () => {
+    tooltip.style.display = 'block'; // Display the tooltip
+    if (i===0) {
+        tooltip.textContent = "NAMAN";
+    }
+    else if(i===1){
+        tooltip.textContent = "RAJDEEP";
+
+    }
+    else if(i===2){
+        tooltip.textContent = "AYUSH";
+
+    }
+    else if(i===3){
+        tooltip.textContent = "PIYUSH";
+
+    }
+    else if(i===4){
+        tooltip.textContent = "SARTHAK";
+
+    }
+
+  });
+
+  // Hide the tooltip when mouse leaves the area
+  area.addEventListener('mouseleave', () => {
+    tooltip.style.display = 'none'; // Hide the tooltip
+  });
+}
+
+
+
+
+
+
+    //   // Loop through each area element
+    //   areas.forEach((area) => {
+    //     // Show the tooltip when mouse enters the area
+    //     area.addEventListener("mouseenter", () => {
+    //       tooltip.style.display = "block"; // Display the tooltip
+    //     });
+
+    //     // Hide the tooltip when mouse leaves the area
+    //     area.addEventListener("mouseleave", () => {
+    //       tooltip.style.display = "none"; // Hide the tooltip
+    //     });
+    //   });
+    </script>
+  </body>
+</html>

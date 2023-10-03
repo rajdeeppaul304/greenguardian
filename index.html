@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Parallax Scrolling Website | Codehal</title>
+    <link rel="stylesheet" href="assests/style.css">
+
+</head>
+
+<body>
+    <header>
+        <a href="#"><img src="assests/index/logo.png" alt="Green Guardian Logo" class="logo"></a>
+
+        <nav class="navigation">
+            <a href="" class="active">Home</a>
+            <a href="about.html">About</a>
+            <a href="resource_page.html">Resources</a>
+            <a href="">Recognition</a>
+            <a href="login.html">Sign In</a>
+
+        </nav>
+
+    </header>
+    
+<section class="banner">
+    <div class="container">
+        <div id="scene">
+            <div class="layer" data-depth="0.4"><img src="assests/index/hill1.png" alt=""></div>
+            <div class="layer" data-depth="0.3"><img src="assests/index/hill2.png" alt=""></div>
+            <div class="layer" data-depth="0.7"><img src="assests/index/greenguardian.png" alt=""></div>
+
+            <div class="layer" data-depth-x="0.6"><img src="assests/index/hill3.png" alt=""></div>
+            <div class="layer" data-depth-x="0.3"><img src="assests/index/hill4.png" alt=""></div>
+            <div class="layer" data-depth-x="0.5"><img src="assests/index/hill5.png" alt=""></div>
+            <div class="layer" data-depth-x="0.25"><img src="assests/index/plant.png" alt=""></div>
+
+            <div class="layer" data-depth-x="0.25"><img src="assests/index/leaf.png" alt=""></div>
+            <div class="layer" data-depth-x="0.4"><img src="assests/index/tree.png" alt=""></div>
+
+
+
+        </div>
+    </div>
+</section>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/parallax/3.1.0/parallax.min.js"></script>
+    <!-- <script src="script.js"></script> -->
+    <script>
+        var scene = document.getElementById('scene');
+var parallaxInstance = new Parallax(scene);
+    </script>
+</body>
+
+</html>
